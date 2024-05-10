@@ -5,16 +5,15 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     GameObject player;
-    [SerializeField] private float cameraSpeed = 0f;
 
     private void Awake()
     {
-        player = GameManager.gameManager.Player;
+
     }
 
     void Start()
     {
-
+        player = GameManager.gameManager.Player;
     }
 
     void Update()
@@ -22,14 +21,25 @@ public class CameraController : MonoBehaviour
 
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (player.IsValid() == false) return;
 
         Vector3 targetPosition = player.transform.position;
         targetPosition.z = transform.position.z;
 
-        transform.position = Vector3.Lerp(transform.position, targetPosition, cameraSpeed);
-        
+        // transform.position = targetPosition;
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.5f);
+    }
+
+    private void LateUpdate()
+    {
+        /*if (player.IsValid() == false) return;
+
+        Vector3 targetPosition = player.transform.position;
+        targetPosition.z = transform.position.z;
+
+        // transform.position = targetPosition;
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.5f);*/
     }
 }
