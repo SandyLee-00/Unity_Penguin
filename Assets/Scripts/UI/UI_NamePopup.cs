@@ -24,11 +24,12 @@ public class UI_NamePopup : MonoBehaviour
 
     void OnClickConfirmButton()
     {
+        if (InputField.text.Length <= 1 || InputField.text.Length >= 11) return;
+
         GameManager.GM.Name = InputField.text;
 
         // UI_NamePopup ´Ý±â
         Destroy(gameObject);
-
         GameManager.GM.RefreshUI();
     }
 }
