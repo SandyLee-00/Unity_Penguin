@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,6 +11,8 @@ public class UI_NamePopup : MonoBehaviour
     TMP_InputField InputField;
     [SerializeField]
     Button ConfirmButton;
+    [SerializeField]
+    Image PlayerImage;
 
     void Start()
     {
@@ -29,7 +32,23 @@ public class UI_NamePopup : MonoBehaviour
         GameManager.GM.Name = InputField.text;
 
         // UI_NamePopup ´Ý±â
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+
         GameManager.GM.RefreshUI();
+        GameManager.GM.Player.GetComponent<PlayerAnimationController>().Init();
+        GameManager.GM.Player.GetComponent<PlayerMovement>().Init();
+    }
+
+    public void RefreshUI()
+    {
+        if (GameManager.GM.Class == Define.PlayerClassType.Penguin)
+        {
+            PlayerImage.sprite = Resources.Load<Sprite>("Sprites/penguin_idle_01");
+        }
+        else if (GameManager.GM.Class == Define.PlayerClassType.Wizard)
+        {
+            PlayerImage.sprite = Resources.Load<Sprite>("Sprites/Angie");
+            PlayerImage.rectTransform.localScale = new Vector3(1.8f, 3f, 1f);
+        }
     }
 }

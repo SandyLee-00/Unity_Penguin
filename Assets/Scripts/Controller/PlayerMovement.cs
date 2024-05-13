@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /// <summary>
 /// 플레이의 이동, Look에 따라 스프라이트 좌우 뒤집기 
@@ -12,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementDirection = Vector2.zero;
 
     const float speed = 12f;
+
+    [SerializeField]
+    GameObject PenguinSprite;
+    [SerializeField]
+    GameObject WizardSprite;
 
     private void Awake()
     {
@@ -41,5 +47,17 @@ public class PlayerMovement : MonoBehaviour
     {
         float DegreeOfDirectionVector = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
         spriteRenderer.flipX = Mathf.Abs(DegreeOfDirectionVector) > 90f;
+    }
+
+    public void Init()
+    {
+        if (GameManager.GM.Class == Define.PlayerClassType.Penguin)
+        {
+            spriteRenderer = PenguinSprite.GetComponent<SpriteRenderer>();
+        }
+        else if (GameManager.GM.Class == Define.PlayerClassType.Wizard)
+        {
+            spriteRenderer = WizardSprite.GetComponent<SpriteRenderer>();
+        }
     }
 }
