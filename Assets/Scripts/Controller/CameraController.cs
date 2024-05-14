@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        player = GameManager.s_instance.Player;
+        player = Managers.s_instance.Player;
     }
 
     void Update()

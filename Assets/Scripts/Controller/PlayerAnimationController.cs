@@ -38,7 +38,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void Init()
     {
-        if (GameManager.GM.Class == Define.PlayerClassType.Penguin)
+        if (Managers.GM.Class == Define.PlayerClassType.Penguin)
         {
             PenguinSprite.SetActive(true);
             WizardSprite.SetActive(false);
@@ -46,7 +46,7 @@ public class PlayerAnimationController : MonoBehaviour
             animator = PenguinSprite.GetComponent<Animator>();
 
         }
-        else if (GameManager.GM.Class == Define.PlayerClassType.Wizard)
+        else if (Managers.GM.Class == Define.PlayerClassType.Wizard)
         {
             PenguinSprite.SetActive(false);
             WizardSprite.SetActive(true);

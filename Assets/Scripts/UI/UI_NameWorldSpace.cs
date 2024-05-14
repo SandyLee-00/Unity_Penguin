@@ -10,7 +10,7 @@ public class UI_NameWorldSpace : MonoBehaviour
 
     private void Start()
     {
-        NameText.text = GameManager.GM.Name;
+        NameText.text = Managers.GM.Name;
     }
 
     private void Update()
@@ -20,6 +20,6 @@ public class UI_NameWorldSpace : MonoBehaviour
 
     public void RefreshUI()
     {
-        NameText.text = GameManager.GM.Name;
+        NameText.text = Managers.GM.Name;
     }
 }

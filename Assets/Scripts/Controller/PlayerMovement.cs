@@ -51,11 +51,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Init()
     {
-        if (GameManager.GM.Class == Define.PlayerClassType.Penguin)
+        if (Managers.GM.Class == Define.PlayerClassType.Penguin)
         {
             spriteRenderer = PenguinSprite.GetComponent<SpriteRenderer>();
         }
-        else if (GameManager.GM.Class == Define.PlayerClassType.Wizard)
+        else if (Managers.GM.Class == Define.PlayerClassType.Wizard)
         {
             spriteRenderer = WizardSprite.GetComponent<SpriteRenderer>();
         }

@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_ClassPopup : MonoBehaviour
+public class UI_ClassPopup : UI_Popup
 {
     [SerializeField]
     Button PenguinButton;
 
     [SerializeField]
     Button WizardButton;
+
 
     void Start()
     {
@@ -28,27 +29,27 @@ public class UI_ClassPopup : MonoBehaviour
 
     void OnClickPenguinButton()
     {
-        GameManager.GM.Class = Define.PlayerClassType.Penguin;
+        Managers.GM.Class = Define.PlayerClassType.Penguin;
 
         // UI_ClassPopup ´Ý±â
         gameObject.SetActive(false);
         
-        GameManager.GM.RefreshUI();
-        GameManager.GM.Player.GetComponent<PlayerAnimationController>().Init();
-        GameManager.GM.Player.GetComponent<PlayerMovement>().Init();
+        Managers.Instance.RefreshUI();
+        Managers.Instance.Player.GetComponent<PlayerAnimationController>().Init();
+        Managers.Instance.Player.GetComponent<PlayerMovement>().Init();
 
     }
 
     void OnClickWizardButton()
     {
-        GameManager.GM.Class = Define.PlayerClassType.Wizard;
+        Managers.GM.Class = Define.PlayerClassType.Wizard;
 
         // UI_ClassPopup ´Ý±â
         gameObject.SetActive(false);
 
-        GameManager.GM.RefreshUI();
-        GameManager.GM.Player.GetComponent<PlayerAnimationController>().Init();
-        GameManager.GM.Player.GetComponent<PlayerMovement>().Init();
+        Managers.Instance.RefreshUI();
+        Managers.Instance.Player.GetComponent<PlayerAnimationController>().Init();
+        Managers.Instance.Player.GetComponent<PlayerMovement>().Init();
     }
 
     public void RefreshUI()
