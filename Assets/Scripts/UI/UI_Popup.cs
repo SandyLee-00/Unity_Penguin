@@ -9,8 +9,7 @@ public class UI_Popup : UI_Base
             return false;
         }
 
-        // TODO : 
-        // Managers.UI.SetCanvas(gameObject, true);
+        Managers.UI.SetCanvas(gameObject, true);
         return true;
     }
 }

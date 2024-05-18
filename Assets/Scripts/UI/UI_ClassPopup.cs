@@ -12,7 +12,6 @@ public class UI_ClassPopup : UI_Popup
     [SerializeField]
     Button WizardButton;
 
-
     void Start()
     {
         Button penguinButtonComponent = PenguinButton.GetComponent<Button>();

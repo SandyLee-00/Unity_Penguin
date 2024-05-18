@@ -66,7 +66,7 @@ public class Managers : MonoBehaviour
             {
                 _gameObject = new GameObject { name = "@Managers" };
             }
-            s_instance = Utils.GetOrAddComponent<Managers>(_gameObject);
+            s_instance = Util.GetOrAddComponent<Managers>(_gameObject);
             DontDestroyOnLoad(_gameObject);
 
             // UI, Game은 Init 여기서 안한다
